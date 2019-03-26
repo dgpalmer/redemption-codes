@@ -1,0 +1,15 @@
+
+# Redemption Codes
+entity.redemption_code.collection:
+  title: 'Redemption Codes'
+  route_name: entity.redemption_code.collection
+  description: 'ASF Redemption Codes & Configuration'
+  parent: system.admin_structure
+
+# Redemptions
+entity.redemption.collection:
+  title: 'Redemption list'
+  route_name: entity.redemption.collection
+  description: 'List Redemption entities'
+  parent: system.admin_structure
+  weight: 100

@@ -1,0 +1,13 @@
+{
+  "name": "drupal/redemption_codes",
+  "type": "drupal-custom-module",
+  "description": "Provides Code Management and Redemption Actions",
+  "keywords": ["Drupal"],
+  "license": "GPL-2.0+",
+  "minimum-stability": "dev",
+  "require": {
+    "drupal/migrate_tools": "dev-4.x",
+    "drupal/migrate_plus": "dev-4.x",
+    "drupal/migrate_source_csv": "~2"
+  }
+}

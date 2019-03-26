@@ -1,0 +1,67 @@
+<?php
+
+/**
+ * @file
+ * Contains redemption_codes.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\redemption_codes\Entity\RedemptionCode;
+use Drupal\redemption_codes\Entity\RedemptionInterface;
+use Symfony\Component\HttpFoundation\RedirectResponse;
+use Drupal\system\Entity\Action;
+
+/**
+ * Implements hook_help().
+ */
+function redemption_codes_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the redemption_codes module.
+    case 'help.page.redemption_codes':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Provides Code Management and Redemption Actions') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+
+/**
+ * Implements hook_FORM_ID_form_alter().
+ */
+function redemption_codes_form_redemption_form_alter(&$form, &$form_state) {
+  $form['redemption_code']['widget'][0]['value']['#title'] = null;
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_insert().
+ */
+function redemption_codes_redemption_insert(RedemptionInterface $entity) {
+  // Get the redemption code associated with the redemption
+  $_redemption_code = $entity->getRedemptionCodeId();
+  $redemption_code = RedemptionCode::load($_redemption_code->id->value);
+
+  // Get the redemption actions associated with the redemption code
+  $_redemption_actions = $redemption_code->getRedemptionActions();
+  $redemption_actions = $_redemption_actions->getValue(); 
+  // Loop through and execute the redemption actions
+  foreach ($redemption_actions as $redemption_action) {
+    $action = Action::load($redemption_action['target_id']);
+    $action->execute([$entity->getOwner()]);
+  }
+
+}
+
+/**
+ * Add the AEUserRegisterForm
+ * Implements hook_entity_type_alter().
+ * @param array $entity_types
+ */
+function redemption_codes_entity_type_build(array &$entity_types) {
+  /** @var $entity_types \Drupal\Core\Entity\EntityTypeInterface[] */
+  $entity_types['user']->setFormClass('redemption_registration_flow', '\Drupal\redemption_codes\Form\RedemptionRegistrationFlow');
+  $entity_types['user']->setFormClass('redemption_pre_registration_flow', '\Drupal\redemption_codes\Form\RedemptionPreRegistrationFlow');
+}

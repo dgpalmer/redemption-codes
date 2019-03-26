@@ -1,0 +1,12 @@
+redemptions:
+  redirect_path: /home
+  default_path: /redeem
+registration_flow:
+  path: /redeem-and-register
+  enabled: 1
+  block: 1
+pre_registration_flow:
+  path: /preregistration_redeem
+  enabled: 1
+  block: 0
+

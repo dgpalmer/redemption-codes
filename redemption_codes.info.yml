@@ -1,0 +1,11 @@
+name: Redemption Codes
+type: module
+description: Provides Code Management and Redemption Actions
+core: 8.x
+dependencies:
+  - action
+  - migrate
+  - migrate_plus
+  - migrate_tools
+  - migrate_source_csv
+  - basic_auth

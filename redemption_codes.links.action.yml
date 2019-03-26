@@ -1,0 +1,11 @@
+entity.redemption_code.add_form:
+  route_name: entity.redemption_code.add_form
+  title: 'Add Code'
+  appears_on:
+    - entity.redemption_code.collection
+
+entity.redemption.add_form:
+  route_name: entity.redemption.add_form
+  title: 'Perform Redemption'
+  appears_on:
+    - entity.redemption_code.collection

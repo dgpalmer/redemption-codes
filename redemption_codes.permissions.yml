@@ -1,0 +1,7 @@
+administer redemption codes:
+  title: 'Administer Redemption Codes'
+  description: 'Allow the user to administer redemption codes'
+  restrict access: true
+
+redeem redemption codes:
+  title: 'Redeem Redemption Codes'

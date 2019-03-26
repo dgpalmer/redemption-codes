@@ -1,0 +1,51 @@
+# Code Routing Definition
+entity.redemption_code.collection:
+  route_name: entity.redemption_code.collection
+  title: 'Redemption Codes'
+  base_route: entity.redemption_code.collection
+
+redemption_code.settings_tab:
+  route_name: redemption_code.settings
+  title: 'Settings'
+  base_route: entity.redemption_code.collection
+
+redemption_code.csv:
+  route_name: redemption_codes.csv
+  title: 'CSV Import'
+  base_route: entity.redemption_code.collection
+  # base_route: code.settings
+
+entity.redemption_code.canonical:
+  route_name: entity.redemption_code.canonical
+  base_route: entity.redemption_code.canonical
+  title: 'View'
+
+entity.redemption_code.edit_form:
+  route_name: entity.redemption_code.edit_form
+  base_route: entity.redemption_code.canonical
+  title: 'Edit'
+
+entity.redemption_code.delete_form:
+  route_name:  entity.redemption_code.delete_form
+  base_route:  entity.redemption_code.canonical
+  title: Delete
+  weight: 10
+
+# Redemption routing definition
+# Code Routing Definition
+entity.redemption.collection:
+  route_name: entity.redemption.collection
+  title: 'Redemptions'
+  base_route: entity.redemption_code.collection
+
+entity.redemption.canonical:
+  route_name: entity.redemption.canonical
+  base_route: entity.redemption.canonical
+  title: 'View'
+
+entity.redemption.delete_form:
+  route_name:  entity.redemption.delete_form
+  base_route:  entity.redemption.canonical
+  title: Delete
+  weight: 10
+

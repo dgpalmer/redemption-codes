@@ -1,0 +1,39 @@
+entity.redemption_code.collection:
+  path: '/admin/structure/redemption_codes'
+  defaults:
+    _title: 'Redemption Codes'
+    _entity_list: 'redemption_code'
+  requirements:
+    _permission: 'administer redemption codes'
+
+redemption_code.settings:
+  path: '/admin/structure/redemption_codes/settings'
+  defaults:
+    _form: '\Drupal\redemption_codes\Form\RedemptionCodeSettingsForm'
+    _title: 'Redemption Codes'
+  requirements:
+    _permission: 'administer redemption codes'
+
+redemption_codes.csv:
+  path: '/admin/structure/redemption_codes/csv'
+  defaults:
+    _form: '\Drupal\redemption_codes\Form\RedemptionCodeCSVSettingsForm'
+    _title: 'Redemption Codes CSV Import'
+  requirements:
+    _permission: 'administer redemption codes'
+
+redemption_codes.user.register:
+  path: '/redeem/register'
+  defaults:
+    _entity_form: 'user.redemption_registration_flow'
+    _title: 'Redeem & Create new account'
+  requirements:
+    _access: 'TRUE'
+
+redemption_codes.user.pre_register:
+  path: '/pre-register-redeem'
+  defaults:
+    _entity_form: 'user.redemption_pre_registration_flow'
+    _title: 'Redeem & Create new account'
+  requirements:
+    _access: 'TRUE'

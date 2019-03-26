@@ -1,0 +1,14 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - user
+    - appreciation_engine
+    - redemption_codes
+  enforced:
+    module:
+      - redemption_codes
+id: user.redemption_pre_registration_flow
+label: 'Pre Register (Redemption Flow)'
+targetEntityType: user
+cache: true

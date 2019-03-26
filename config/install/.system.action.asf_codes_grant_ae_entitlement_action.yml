@@ -1,0 +1,6 @@
+id: redemption_codes_grant_ae_entitlement_action
+label: 'Grant AE Entitlement'
+status: '1'
+langcode: en
+type: code
+plugin: redemption_codes_grant_ae_entitlement_action

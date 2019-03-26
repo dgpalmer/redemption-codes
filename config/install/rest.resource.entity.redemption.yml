@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - redemption_codes
+    - basic_auth
+    - serialization
+    - user
+id: entity.redemption
+plugin_id: 'entity:redemption'
+granularity: resource
+configuration:
+  methods:
+    - GET
+    - POST
+  formats:
+    - json
+  authentication:
+    - basic_auth
+    - cookie

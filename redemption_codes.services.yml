@@ -1,0 +1,5 @@
+services:
+  redemption_codes.route_subscriber:
+    class: Drupal\redemption_codes\Routing\RouteSubscriber
+    tags:
+      - { name: event_subscriber }
